@@ -1,3 +1,6 @@
+/**
+ * Class to manage the location of a Rocket after it's been fired. 
+ */
 public class Rocket {
 
     private final double velocity;
