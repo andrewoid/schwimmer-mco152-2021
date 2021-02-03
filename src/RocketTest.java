@@ -33,7 +33,7 @@ public class RocketTest {
         Rocket rocket = new Rocket(71, 35);
 
         // when
-        double time = rocket.getTimeToLand();
+        double time = rocket.getFlightTime();
 
         // then
         Assert.assertEquals(8.31, time, 0.01);

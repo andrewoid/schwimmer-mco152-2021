@@ -18,8 +18,7 @@ public class Rocket {
      */
     public double getX(double time) {
         double xVelocity = Math.cos(angle) * velocity;
-        double x = xVelocity * time;
-        return x;
+        return xVelocity * time;
     }
 
     /**
