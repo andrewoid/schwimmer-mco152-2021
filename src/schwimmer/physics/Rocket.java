@@ -4,7 +4,7 @@ package schwimmer.physics;
  * Class to manage the location of a Rocket after it's been fired. 
  */
 public class Rocket {
-
+    private static final double GRAVITY = 9.8;
     private final double velocity;
     private final double angle;
 
@@ -29,7 +29,6 @@ public class Rocket {
      * @return the Y location of the Rocket at the specified time.
      */
     public double getY(double time) {
-        final double GRAVITY = 9.8;
         double yVelocity = Math.sin(angle) * velocity;
         double y = yVelocity * time - 0.5 * GRAVITY * time * time;
         return y;
@@ -40,13 +39,11 @@ public class Rocket {
      * @return the time in seconds that the rocket lands.
      */
     public double getFlightTime() {
-        final double GRAVITY = 9.8;
         double yVelocity = Math.sin(angle) * velocity;
         return yVelocity / (0.5 * GRAVITY);
     }
 
     public double getHighestY() {
-        final double GRAVITY = 9.8;
         double yVelocity = Math.sin(angle) * velocity;
         return (yVelocity * yVelocity) / (GRAVITY * 2);
     }
