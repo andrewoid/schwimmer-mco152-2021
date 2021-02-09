@@ -1,3 +1,5 @@
+package schwimmer.physics;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -28,7 +30,7 @@ public class RocketTest {
     }
 
     @Test
-    public void timeToLand() {
+    public void flightTime() {
         // given
         Rocket rocket = new Rocket(71, 35);
 
