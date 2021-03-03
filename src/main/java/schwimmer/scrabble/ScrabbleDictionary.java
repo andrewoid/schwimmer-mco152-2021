@@ -3,32 +3,35 @@ package schwimmer.scrabble;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class ScrabbleDictionary {
 
-    private ArrayList<String> words = new ArrayList<>();
-    private ArrayList<String> definitions = new ArrayList<>();
+    private final Map<String, String> wordsToDefinitions = new HashMap<>();
 
     public ScrabbleDictionary() throws FileNotFoundException {
         Scanner scanner = new Scanner(new FileReader("src/main/resources/dictionary.txt"));
         while (scanner.hasNext()) {
-            words.add(scanner.next());
-            definitions.add(scanner.nextLine().trim());
+            wordsToDefinitions.put(
+                    scanner.next(), // key
+                    scanner.nextLine().trim() // value
+            );
         }
     }
 
     public boolean contains(String word) {
-        return words.contains(word.toUpperCase());
+        return wordsToDefinitions.containsKey(word.toUpperCase());
     }
 
     public String getDefinition(String word) {
-        int index = words.indexOf(word.toUpperCase());
-        return index == -1 ? "" : definitions.get(index);
+        String definition = wordsToDefinitions.get(word.toUpperCase());
+        return definition == null ? "" : definition;
     }
 
     public int size() {
-        return words.size();
+        return wordsToDefinitions.size();
     }
 
 }
