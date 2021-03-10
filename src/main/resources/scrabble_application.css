@@ -1,0 +1,20 @@
+Label {
+    -fx-min-width:50;
+    -fx-min-height:50;
+    -fx-border-width:5;
+    -fx-border-color:red;
+}
+
+Label.points {
+    -fx-min-width:50;
+    -fx-min-height:50;
+    -fx-border-width:1;
+    -fx-border-color:green;
+}
+
+Label.bottomClickable {
+    -fx-min-width:50;
+    -fx-min-height:50;
+    -fx-border-width:5;
+    -fx-border-color:pink;
+}

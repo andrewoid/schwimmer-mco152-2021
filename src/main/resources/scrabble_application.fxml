@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="schwimmer.scrabble.ScrabbleController"
+          stylesheets="scrabble_application.css"
+          prefHeight="400.0" prefWidth="600.0">
+
+    <Label fx:id="answerLabel0" onMouseClicked="#onAnswerClicked" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <Label fx:id="answerLabel1" onMouseClicked="#onAnswerClicked" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+    <Label fx:id="answerLabel2" onMouseClicked="#onAnswerClicked" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+    <Label fx:id="answerLabel3" onMouseClicked="#onAnswerClicked" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+    <Label fx:id="answerLabel4" onMouseClicked="#onAnswerClicked" GridPane.columnIndex="4" GridPane.rowIndex="0"/>
+    <Label fx:id="answerLabel5" onMouseClicked="#onAnswerClicked" GridPane.columnIndex="5" GridPane.rowIndex="0"/>
+    <Label fx:id="answerLabel6" onMouseClicked="#onAnswerClicked" GridPane.columnIndex="6" GridPane.rowIndex="0"/>
+
+    <Button fx:id="clearButton" onAction="#onClear" text="clear" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <Button fx:id="submitButton" onAction="#onSubmit" text="submit" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+    <Label fx:id="pointsLabel" styleClass="points" text="#points" GridPane.columnIndex="6" GridPane.rowIndex="1"/>
+
+    <Label fx:id="letterLabel0" onMouseClicked="#onLetterClicked" styleClass="bottomClickable" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <Label fx:id="letterLabel1" styleClass="bottomClickable" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <Label fx:id="letterLabel2" styleClass="bottomClickable" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+    <Label fx:id="letterLabel3" styleClass="bottomClickable" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+    <Label fx:id="letterLabel4" styleClass="bottomClickable" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
+    <Label fx:id="letterLabel5" styleClass="bottomClickable" GridPane.columnIndex="5" GridPane.rowIndex="2"/>
+    <Label fx:id="letterLabel6" styleClass="bottomClickable" GridPane.columnIndex="6" GridPane.rowIndex="2"/>
+
+    <fx:define>
+        <ArrayList fx:id="answerLabels" >
+            <fx:reference source="answerLabel0"/>
+            <fx:reference source="answerLabel1"/>
+            <fx:reference source="answerLabel2"/>
+            <fx:reference source="answerLabel3"/>
+            <fx:reference source="answerLabel4"/>
+            <fx:reference source="answerLabel5"/>
+            <fx:reference source="answerLabel6"/>
+        </ArrayList>
+        <ArrayList fx:id="letterLabels" >
+            <fx:reference source="letterLabel0"/>
+            <fx:reference source="letterLabel1"/>
+            <fx:reference source="letterLabel2"/>
+            <fx:reference source="letterLabel3"/>
+            <fx:reference source="letterLabel4"/>
+            <fx:reference source="letterLabel5"/>
+            <fx:reference source="letterLabel6"/>
+        </ArrayList>
+    </fx:define>
+
+</GridPane>
