@@ -9,9 +9,16 @@ import javafx.stage.Stage;
 public class ScrabbleApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/scrabble_application.fxml"));
 
-        Scene scene = new Scene(root, 800, 400);
+        ScrabbleDictionary dictionary = new ScrabbleDictionary();
+        LetterBag letterBag = new LetterBag();
+        ScrabbleController controller = new ScrabbleController(dictionary, letterBag);
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/scrabble_application.fxml"));
+        loader.setController(controller);
+
+        Parent parent = loader.load();
+        Scene scene = new Scene(parent, 350, 150);
 
         stage.setTitle("Scrabble");
         stage.setScene(scene);

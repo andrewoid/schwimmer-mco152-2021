@@ -11,21 +11,21 @@ import java.util.List;
 public class ScrabbleController {
 
     @FXML
-    List<Label> answerLabels;
+    private List<Label> answerLabels;
     @FXML
     List<Label> letterLabels;
 
-    private LetterBag letterBag = new LetterBag();
+    private final LetterBag letterBag;
 
-    private ScrabbleDictionary dictionary;
+    private final ScrabbleDictionary dictionary;
 
-    public ScrabbleController() {
-        try {
-            dictionary = new ScrabbleDictionary();
-        }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+    // Dependency Injection
+    // If a class depends on other objects, pass those objects in the constructor.
+    public ScrabbleController(
+            ScrabbleDictionary dictionary,
+            LetterBag letterBag) {
+        this.dictionary = dictionary;
+        this.letterBag = letterBag;
     }
 
     @FXML
@@ -40,7 +40,7 @@ public class ScrabbleController {
     }
 
     public void onClear(ActionEvent event) {
-
+        System.out.println("onClear()");
     }
 
     public void onSubmit(ActionEvent event) {

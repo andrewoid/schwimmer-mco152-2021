@@ -17,6 +17,27 @@ public class LetterBag {
         List<String> list = Arrays.asList(
                 "A", "A", "A", "A", "A", "A", "A", "A", "A",
                 "B", "B",
+                "C", "C",
+                "C", "C",
+                "C", "C",
+                "C", "C",
+                "C", "C",
+                "C", "C",
+                "C", "C",
+                "C", "C",
+                "C", "C",
+                "C", "C",
+                "C", "C",
+                "C", "C",
+                "C", "C",
+                "C", "C",
+                "C", "C",
+                "C", "C",
+                "C", "C",
+                "C", "C",
+                "C", "C",
+                "C", "C",
+                "C", "C",
                 "C", "C"
         );
         Collections.shuffle(list);
