@@ -122,7 +122,7 @@ public class ScrabbleControllerTest {
 
         doReturn("G").when(letterLabels.get(0)).getText();
         doReturn("").when(letterLabels.get(1)).getText();
-        doReturn("E").when(letterLabels.get(2)).getText();
+        doReturn("").when(letterLabels.get(2)).getText();
         MouseEvent event = mock(MouseEvent.class);
         doReturn(answerLabels.get(1)).when(event).getSource();
 
@@ -134,6 +134,30 @@ public class ScrabbleControllerTest {
         verify(letterLabels.get(1)).setText("H");
         verify(letterLabels.get(0), never()).setText(anyString());
         verify(letterLabels.get(2), never()).setText(anyString());
+    }
+
+    @Test
+    public void onLetterClicked() {
+        // given
+        givenScrabbleController();
+        doReturn("G").when(answerLabels.get(0)).getText();
+        doReturn("").when(answerLabels.get(1)).getText();
+        doReturn("").when(answerLabels.get(2)).getText();
+
+        doReturn("").when(letterLabels.get(0)).getText();
+        doReturn("H").when(letterLabels.get(1)).getText();
+        doReturn("").when(letterLabels.get(2)).getText();
+        MouseEvent event = mock(MouseEvent.class);
+        doReturn(letterLabels.get(1)).when(event).getSource();
+
+        // when
+        controller.onLetterClicked(event);
+
+        // then
+        verify(letterLabels.get(1)).setText("");
+        verify(answerLabels.get(1)).setText("H");
+        verify(answerLabels.get(0), never()).setText(anyString());
+        verify(answerLabels.get(2), never()).setText(anyString());
     }
 
     private void givenScrabbleController() {

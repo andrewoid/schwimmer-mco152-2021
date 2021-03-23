@@ -77,7 +77,18 @@ public class ScrabbleController {
     }
 
     public void onLetterClicked(MouseEvent event) {
-
+        Label label = (Label) event.getSource();
+        String letter = label.getText();
+        if (!letter.isEmpty()) {
+            label.setText("");
+            for (Label answerLabel : answerLabels) {
+                String s = answerLabel.getText();
+                if (s.isEmpty()) {
+                    answerLabel.setText(letter);
+                    break;
+                }
+            }
+        }
     }
 
 }
