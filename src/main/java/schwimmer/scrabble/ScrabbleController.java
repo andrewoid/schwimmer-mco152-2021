@@ -5,13 +5,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
-import java.io.FileNotFoundException;
 import java.util.List;
 
 public class ScrabbleController {
 
     @FXML
-    private List<Label> answerLabels;
+    List<Label> answerLabels;
     @FXML
     List<Label> letterLabels;
 
@@ -39,8 +38,23 @@ public class ScrabbleController {
         Label label = (Label) event.getSource();
     }
 
+    /**
+     * Returns the letters in answerLabels to letterLabels
+     *
+     * @param event
+     */
     public void onClear(ActionEvent event) {
-        System.out.println("onClear()");
+        for (Label answerLabel : answerLabels) {
+            String letter = answerLabel.getText();
+            if (letter != null && !letter.isEmpty()) {
+                answerLabel.setText("");
+                for (Label letterLabel : letterLabels) {
+                    if (letterLabel.getText().isEmpty()) {
+                        letterLabel.setText(letter);
+                    }
+                }
+            }
+        }
     }
 
     public void onSubmit(ActionEvent event) {

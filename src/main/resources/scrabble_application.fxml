@@ -24,12 +24,12 @@
     <Label fx:id="pointsLabel" styleClass="points" text="#points" GridPane.columnIndex="6" GridPane.rowIndex="1"/>
 
     <Label fx:id="letterLabel0" onMouseClicked="#onLetterClicked" styleClass="bottomClickable" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-    <Label fx:id="letterLabel1" styleClass="bottomClickable" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-    <Label fx:id="letterLabel2" styleClass="bottomClickable" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
-    <Label fx:id="letterLabel3" styleClass="bottomClickable" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
-    <Label fx:id="letterLabel4" styleClass="bottomClickable" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
-    <Label fx:id="letterLabel5" styleClass="bottomClickable" GridPane.columnIndex="5" GridPane.rowIndex="2"/>
-    <Label fx:id="letterLabel6" styleClass="bottomClickable" GridPane.columnIndex="6" GridPane.rowIndex="2"/>
+    <Label fx:id="letterLabel1" onMouseClicked="#onLetterClicked" styleClass="bottomClickable" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <Label fx:id="letterLabel2" onMouseClicked="#onLetterClicked" styleClass="bottomClickable" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+    <Label fx:id="letterLabel3" onMouseClicked="#onLetterClicked" styleClass="bottomClickable" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+    <Label fx:id="letterLabel4" onMouseClicked="#onLetterClicked" styleClass="bottomClickable" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
+    <Label fx:id="letterLabel5" onMouseClicked="#onLetterClicked" styleClass="bottomClickable" GridPane.columnIndex="5" GridPane.rowIndex="2"/>
+    <Label fx:id="letterLabel6" onMouseClicked="#onLetterClicked" styleClass="bottomClickable" GridPane.columnIndex="6" GridPane.rowIndex="2"/>
 
     <fx:define>
         <ArrayList fx:id="answerLabels" >
