@@ -2,16 +2,13 @@ package schwimmer.scrabble;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
-import javafx.scene.control.Labeled;
+import javafx.scene.input.MouseEvent;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.mockito.Mockito;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
@@ -109,6 +106,30 @@ public class ScrabbleControllerTest {
 
         // then
         verify(answerLabels.get(1)).getText();
+        verify(answerLabels.get(1)).setText("");
+        verify(letterLabels.get(1)).setText("H");
+        verify(letterLabels.get(0), never()).setText(anyString());
+        verify(letterLabels.get(2), never()).setText(anyString());
+    }
+
+    @Test
+    public void onAnswerClicked() {
+        // given
+        givenScrabbleController();
+        doReturn("").when(answerLabels.get(0)).getText();
+        doReturn("H").when(answerLabels.get(1)).getText();
+        doReturn("").when(answerLabels.get(2)).getText();
+
+        doReturn("G").when(letterLabels.get(0)).getText();
+        doReturn("").when(letterLabels.get(1)).getText();
+        doReturn("E").when(letterLabels.get(2)).getText();
+        MouseEvent event = mock(MouseEvent.class);
+        doReturn(answerLabels.get(1)).when(event).getSource();
+
+        // when
+        controller.onAnswerClicked(event);
+
+        // then
         verify(answerLabels.get(1)).setText("");
         verify(letterLabels.get(1)).setText("H");
         verify(letterLabels.get(0), never()).setText(anyString());

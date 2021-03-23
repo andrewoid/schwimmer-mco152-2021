@@ -34,12 +34,27 @@ public class ScrabbleController {
         }
     }
 
+    /**
+     * Return the letter in this answerLabel to an empty letterLabel if this Label is not empty.
+     * @param event
+     */
     public void onAnswerClicked(MouseEvent event) {
         Label label = (Label) event.getSource();
+        String letter = label.getText();
+        if (!letter.isEmpty()) {
+            label.setText("");
+            for (Label letterLabel : letterLabels) {
+                String s = letterLabel.getText();
+                if (s.isEmpty()) {
+                    letterLabel.setText(letter);
+                    break;
+                }
+            }
+        }
     }
 
     /**
-     * Returns the letters in answerLabels to letterLabels
+     * Returns the letters in answerLabels to letterLabels.
      *
      * @param event
      */
