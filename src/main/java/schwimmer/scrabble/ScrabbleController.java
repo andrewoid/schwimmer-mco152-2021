@@ -72,6 +72,7 @@ public class ScrabbleController {
                 for (Label letterLabel : letterLabels) {
                     if (letterLabel.getText().isEmpty()) {
                         letterLabel.setText(letter);
+                        break;
                     }
                 }
             }

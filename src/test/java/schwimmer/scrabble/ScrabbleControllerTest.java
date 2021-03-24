@@ -101,7 +101,7 @@ public class ScrabbleControllerTest {
 
         doReturn("G").when(letterLabels.get(0)).getText();
         doReturn("").when(letterLabels.get(1)).getText();
-        doReturn("E").when(letterLabels.get(2)).getText();
+        doReturn("").when(letterLabels.get(2)).getText();
 
         // when
         controller.onClear(mock(ActionEvent.class));
