@@ -11,8 +11,14 @@ public class ScrabbleController {
 
     @FXML
     List<Label> answerLabels;
+
     @FXML
     List<Label> letterLabels;
+
+    @FXML
+    Label pointsLabel;
+
+    int points = 0;
 
     private final LetterBag letterBag;
 
@@ -73,7 +79,58 @@ public class ScrabbleController {
     }
 
     public void onSubmit(ActionEvent event) {
+        StringBuilder builder = new StringBuilder();
+        for (Label label : answerLabels) {
+            String letter = label.getText();
+            if (letter.isEmpty()) {
+                break;
+            }
+            builder.append(letter);
+        }
+        String word = builder.toString();
+        if (dictionary.contains(word)) {
+            addPoints(word);
+            pointsLabel.setText(String.valueOf(points));
+            clearAnswerLabels();
+            addNewLetters();
+        }
+    }
 
+    private void addNewLetters() {
+        for (Label label : letterLabels) {
+            if (label.getText().isEmpty()) {
+                label.setText(letterBag.nextLetter());
+            }
+        }
+    }
+
+    private void clearAnswerLabels() {
+        for (Label label : answerLabels) {
+            label.setText("");
+        }
+    }
+
+    public void addPoints(String word) {
+        switch (word.length()) {
+            case 2:
+                points += 1;
+                break;
+            case 3:
+                points += 3;
+                break;
+            case 4:
+                points += 5;
+                break;
+            case 5:
+                points += 7;
+                break;
+            case 6:
+                points += 11;
+                break;
+            case 7:
+                points += 13;
+                break;
+        }
     }
 
     public void onLetterClicked(MouseEvent event) {

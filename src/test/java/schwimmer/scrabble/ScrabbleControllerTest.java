@@ -3,6 +3,7 @@ package schwimmer.scrabble;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -19,6 +20,7 @@ public class ScrabbleControllerTest {
     private ScrabbleController controller;
     private List<Label> answerLabels;
     private List<Label> letterLabels;
+    private Label pointsLabel;
 
     @BeforeClass
     public static void beforeClass() {
@@ -160,6 +162,51 @@ public class ScrabbleControllerTest {
         verify(answerLabels.get(2), never()).setText(anyString());
     }
 
+    @Test
+    public void onSubmit_validWord() {
+        // given
+        givenScrabbleController();
+        doReturn("C").when(answerLabels.get(0)).getText();
+        doReturn("A").when(answerLabels.get(1)).getText();
+        doReturn("T").when(answerLabels.get(2)).getText();
+        doReturn("").when(letterLabels.get(0)).getText();
+        doReturn("").when(letterLabels.get(1)).getText();
+        doReturn("").when(letterLabels.get(2)).getText();
+        doReturn(true).when(dictionary).contains("CAT");
+        doReturn("E", "S", "T")
+                .when(letterBag).nextLetter();
+
+        // when
+        controller.onSubmit(mock(ActionEvent.class));
+
+        // then
+        verify(dictionary).contains("CAT");
+        verify(pointsLabel).setText("3");
+        Assert.assertEquals(3, controller.points);
+        // TODO verify new letters
+        // TODO verify clear labels
+    }
+
+    @Test
+    public void onSubmit_invalidWord() {
+        // given
+        givenScrabbleController();
+        doReturn("Q").when(answerLabels.get(0)).getText();
+        doReturn("W").when(answerLabels.get(1)).getText();
+        doReturn("S").when(answerLabels.get(2)).getText();
+        doReturn(false).when(dictionary).contains("QWS");
+
+        // when
+        controller.onSubmit(mock(ActionEvent.class));
+
+        // then
+        verify(dictionary).contains("QWS");
+        verifyNoInteractions(pointsLabel);
+        Assert.assertEquals(0, controller.points);
+        // TODO verify no new letters
+        // TODO verify labels not cleared
+    }
+
     private void givenScrabbleController() {
         letterBag = mock(LetterBag.class);
         dictionary = mock(ScrabbleDictionary.class);
@@ -176,5 +223,7 @@ public class ScrabbleControllerTest {
                 mock(Label.class)
         );
         controller.answerLabels = answerLabels;
+        pointsLabel = mock(Label.class);
+        controller.pointsLabel = pointsLabel;
     }
 }
