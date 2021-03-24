@@ -21,7 +21,7 @@
 
     <Button fx:id="clearButton" onAction="#onClear" text="clear" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
     <Button fx:id="submitButton" onAction="#onSubmit" text="submit" GridPane.columnSpan="2" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
-    <Label fx:id="pointsLabel" styleClass="points" text="#points" GridPane.columnIndex="6" GridPane.rowIndex="1"/>
+    <Label fx:id="pointsLabel" styleClass="points" text="0" GridPane.columnIndex="6" GridPane.rowIndex="1"/>
 
     <Label fx:id="letterLabel0" onMouseClicked="#onLetterClicked" styleClass="bottomClickable" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
     <Label fx:id="letterLabel1" onMouseClicked="#onLetterClicked" styleClass="bottomClickable" GridPane.columnIndex="1" GridPane.rowIndex="2"/>

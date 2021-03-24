@@ -1,8 +1,11 @@
 Label {
     -fx-min-width:50;
     -fx-min-height:50;
-    -fx-border-width:5;
+    -fx-border-width:1`;
     -fx-border-color:red;
+    -fx-alignment: center;
+    -fx-font:28px Helvetica;
+    -fx-background-color: cornsilk;
 }
 
 Label.points {
@@ -15,6 +18,6 @@ Label.points {
 Label.bottomClickable {
     -fx-min-width:50;
     -fx-min-height:50;
-    -fx-border-width:5;
-    -fx-border-color:pink;
+    -fx-border-width:1;
+    -fx-border-color:black;
 }
